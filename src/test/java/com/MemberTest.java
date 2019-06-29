@@ -3,7 +3,6 @@ package com;
 import java.util.Arrays;
 import java.util.Collection;
 
-import javax.xml.crypto.Data;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,6 +10,10 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+/**
+ * @author yangguoer
+ *
+ */
 @RunWith(Parameterized.class)
 public class MemberTest {
 	
