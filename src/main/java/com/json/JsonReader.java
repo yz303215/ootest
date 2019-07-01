@@ -12,7 +12,6 @@ import javax.xml.crypto.dsig.keyinfo.KeyValue;
 
 import org.apache.commons.io.FileUtils;
 
-import com.Member;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
@@ -44,6 +43,7 @@ public class JsonReader {
 			map.put(jsonKey, keyValues);
 			LOGGER.info(jsonKey + keyValues);
 		}
+		LOGGER.info(jsonData);
 		
 	}
 	

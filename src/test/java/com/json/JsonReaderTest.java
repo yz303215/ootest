@@ -13,7 +13,7 @@ public class JsonReaderTest {
 	@Test
 	public void should_return_map_when_read_the_json_file() throws IOException {
 		
-		JsonReader jReader = new JsonReader();
+		JsonReader jReader = new JsonReader("json.data");
 		
 		jReader .readJsonFile();
 	}

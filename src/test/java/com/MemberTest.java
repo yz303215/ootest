@@ -26,7 +26,7 @@ public class MemberTest {
 	}
 
 	@Parameters
-	public static Collection<Object[]> Parameters(){
+	public static Collection<Object[]> parameters(){
 		Object[][] objects = new Object[][]{
 			{60,60},
 			{156,180},
