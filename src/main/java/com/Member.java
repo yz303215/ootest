@@ -1,12 +1,19 @@
 package com;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
 
 public class Member {
 	private static final Logger LOGGER = Logger.getLogger(Member.class.getName());
 	private int point;
 	
-	
+	private static Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+	{
+		map.put(60, 60);
+		map.put(156, 180);
+		map.put(200, 300);
+	}
 	
 	public void recharge(int money) {
 		if (money == 60) {
