@@ -6,6 +6,8 @@ public class Member {
 	private static final Logger LOGGER = Logger.getLogger(Member.class.getName());
 	private int point;
 	
+	
+	
 	public void recharge(int money) {
 		if (money == 60) {
 			point += 60;
