@@ -20,7 +20,7 @@ public class Member {
 		if (map.get(money) != null) {
 			point += map.get(money);
 		}else  {
-			LOGGER.info("充值金额不合法");
+			LOGGER.info("充值金额不合法"); 
 			throw new IllegalArgumentException("充值金额不合法");
 		}
 		LOGGER.info("充值成功");
