@@ -6,11 +6,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Logger;
 
 import javax.xml.crypto.dsig.keyinfo.KeyValue;
 
 import org.apache.commons.io.FileUtils;
 
+import com.Member;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
@@ -19,6 +21,8 @@ import com.alibaba.fastjson.JSONObject;
  * @date  2019年7月1日
  */
 public class JsonReader {
+	
+	private static final Logger LOGGER = Logger.getLogger(JsonReader.class.getName());
 	
 	public static Map<String, List<KeyValue>> map = new ConcurrentHashMap<>(28);
 	
@@ -38,7 +42,9 @@ public class JsonReader {
 			String jsonArray = jsonObject.getJSONArray(jsonKey).toJSONString();
 			List<KeyValue> keyValues = JSONArray.parseArray(jsonArray, KeyValue.class);
 			map.put(jsonKey, keyValues);
+			LOGGER.info(jsonKey + keyValues);
 		}
+		
 	}
 	
 	public JsonReader(String jsonFile) {
