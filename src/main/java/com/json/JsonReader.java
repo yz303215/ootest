@@ -8,8 +8,6 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
-import javax.xml.crypto.dsig.keyinfo.KeyValue;
-
 import org.apache.commons.io.FileUtils;
 
 import com.alibaba.fastjson.JSONArray;
@@ -36,22 +34,29 @@ public class JsonReader {
 		JSONObject jsonObject = JSONObject.parseObject(jsonData);
 		
 		Set<String> jsonKeySet = jsonObject.keySet();
-		for (String jsonKey : jsonKeySet) {
+			for (String jsonKey : jsonKeySet) {
+				
+				String jsonArray = jsonObject.getJSONArray(jsonKey).toJSONString();
+				List<KeyValue> keyValues = JSONArray.parseArray(jsonArray, KeyValue.class);
+				map.put(jsonKey, keyValues);
+				LOGGER.info(jsonKey + keyValues);
+			}
+			LOGGER.info(jsonData);
 			
-			String jsonArray = jsonObject.getJSONArray(jsonKey).toJSONString();
-			List<KeyValue> keyValues = JSONArray.parseArray(jsonArray, KeyValue.class);
-			map.put(jsonKey, keyValues);
-			LOGGER.info(jsonKey + keyValues);
 		}
-		LOGGER.info(jsonData);
 		
-	}
 	
-	public JsonReader(String jsonFile) {
-		this.fileName = jsonFile;
-	}
+	static class KeyValue{
+        private int id;
+        private String value;
+    }
+		public JsonReader(String jsonFile) {
+			this.fileName = jsonFile;
+			
+		}
 
-		public JsonReader() {	}
+		@SuppressWarnings("unused")
+		private JsonReader() {}
 
 		public String getFileName() {
 			return fileName;
